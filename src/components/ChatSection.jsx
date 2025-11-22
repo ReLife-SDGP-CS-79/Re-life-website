@@ -52,14 +52,14 @@ const ChatSection = () => {
               placeholder="Ask anything...."
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              className="w-full px-6 py-5 rounded-full bg-white border border-warm-gray/30 text-dark-text placeholder-warm-gray focus:outline-none focus:border-warm-gray/50 shadow-sm"
+              className="w-full px-6 py-5 rounded-full bg-transparent border border-white/30 text-white/80 placeholder-white/60 focus:outline-none focus:border-white/50"
             />
             <div className="absolute right-4 top-1/2 -translate-y-1/2 flex items-center gap-3">
-              <button className="p-2 hover:bg-warm-gray/10 rounded-full transition-colors">
-                <FiSend className="text-xl text-warm-gray" />
+              <button className="p-2 hover:bg-white/10 rounded-full transition-colors">
+                <FiSend className="text-xl text-white/70" />
               </button>
-              <button className="p-2 hover:bg-warm-gray/10 rounded-full transition-colors">
-                <HiPaperClip className="text-xl text-warm-gray" />
+              <button className="p-2 hover:bg-white/10 rounded-full transition-colors">
+                <HiPaperClip className="text-xl text-white/70" />
               </button>
             </div>
           </div>
