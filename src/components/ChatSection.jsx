@@ -83,7 +83,7 @@ const ChatSection = () => {
             <span className="text-white/90 font-semibold text-sm tracking-wider uppercase">Featured Experience</span>
           </div>
           <BlurText 
-            text="Hi kavindu, How can i help ?"
+            text="Hi Jhone, How can i help ?"
             delay={50}
             animateBy="words"
             className="text-5xl md:text-6xl font-black text-dark-text mb-4 text-center"

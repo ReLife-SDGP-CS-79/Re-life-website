@@ -78,7 +78,7 @@ Landing page/
 - Chat input with send and attachment icons
 
 ### 3. **Chat Section**
-- Greeting: "Hi kavindu, How can i help ?"
+- Greeting: "Hi Jhone, How can i help ?"
 - AI message bubble (soft pink background)
 - User message bubble (mint green background)
 - Avatar icons for both participants
