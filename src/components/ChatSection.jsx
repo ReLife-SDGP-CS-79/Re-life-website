@@ -76,11 +76,21 @@ const ChatSection = () => {
   }, []);
 
   return (
-    <section id="chat" className="min-h-screen bg-white pt-0 pb-16 px-6 relative" ref={sectionRef}>
+    <section id="chat" className="min-h-screen pt-0 pb-16 px-6 relative overflow-hidden" ref={sectionRef}
+      style={{
+        background: 'linear-gradient(135deg, #f5f7fa 0%, #e8f4f8 100%)'
+      }}>
       <div className="relative z-10 max-w-6xl mx-auto pt-24">
         {/* Section Header */}
         <div className="text-center mb-12">
-          <div className="inline-block px-6 py-2 bg-cyan-400/10 backdrop-blur-sm border border-cyan-400/30 rounded-full mb-6" style={{borderColor: '#39ACD6'}}>
+          <div className="inline-block px-6 py-2 rounded-full mb-6" 
+            style={{
+              background: 'rgba(255, 255, 255, 0.7)',
+              backdropFilter: 'blur(10px)',
+              WebkitBackdropFilter: 'blur(10px)',
+              border: '1px solid rgba(57, 172, 214, 0.3)',
+              boxShadow: '0 8px 32px 0 rgba(0, 228, 255, 0.1)'
+            }}>
             <span className="font-semibold text-sm tracking-wider uppercase" style={{color: '#0012FF'}}>Featured Experience</span>
           </div>
           <BlurText 
@@ -95,22 +105,41 @@ const ChatSection = () => {
           </p>
         </div>
 
-        {/* Chat Feature Box */}
+        {/* Chat Feature Box with Glassmorphism */}
         <div className="relative">
-          {/* Glow effect */}
-          <div className="absolute -inset-1 rounded-3xl blur-2xl opacity-50" style={{background: 'linear-gradient(to right, rgba(0, 228, 255, 0.3), rgba(0, 18, 255, 0.2), rgba(57, 172, 214, 0.3))'}}></div>
+          {/* Soft glow effect */}
+          <div className="absolute -inset-2 rounded-[32px] opacity-30 blur-2xl" 
+            style={{background: 'linear-gradient(135deg, rgba(0, 228, 255, 0.2), rgba(57, 172, 214, 0.15))'}}></div>
           
-          {/* Main Container */}
-          <div className="relative backdrop-blur-xl rounded-3xl p-8 md:p-12 shadow-2xl min-h-[400px]" style={{backgroundColor: '#FFFFFF', border: '2px solid #39ACD6'}}>
+          {/* Main Container - Glassmorphism */}
+          <div className="relative rounded-[32px] p-8 md:p-12 min-h-[450px]" 
+            style={{
+              background: 'rgba(255, 255, 255, 0.6)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              border: '2px solid rgba(57, 172, 214, 0.4)',
+              boxShadow: '0 8px 32px 0 rgba(0, 228, 255, 0.15), inset 0 1px 0 0 rgba(255, 255, 255, 0.5)'
+            }}>
             {/* Chat Messages */}
             <div className="space-y-6 mb-8">
               {/* AI Message */}
               {showAiMessage && (
                 <div className="flex items-start gap-4 animate-fadeIn">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: '#00E4FF', color: '#000000'}}>
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg" 
+                    style={{
+                      background: 'linear-gradient(135deg, #00E4FF, #39ACD6)',
+                      color: '#000000'
+                    }}>
                     <BiBot className="text-2xl" />
                   </div>
-                  <div className="rounded-2xl rounded-tl-md px-6 py-4 max-w-2xl" style={{backgroundColor: '#F0F8FF', border: '1px solid #39ACD6'}}>
+                  <div className="rounded-2xl rounded-tl-md px-6 py-4 max-w-2xl" 
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.8)',
+                      backdropFilter: 'blur(10px)',
+                      WebkitBackdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(57, 172, 214, 0.3)',
+                      boxShadow: '0 4px 16px rgba(0, 228, 255, 0.1)'
+                    }}>
                     <p className="leading-relaxed" style={{color: '#000000'}}>
                       {aiText}
                       {isTyping && <span className="inline-block w-0.5 h-5 ml-1 animate-pulse" style={{backgroundColor: '#0012FF'}}></span>}
@@ -122,48 +151,70 @@ const ChatSection = () => {
               {/* User Message */}
               {showUserMessage && (
                 <div className="flex items-start gap-4 justify-end animate-fadeIn">
-                  <div className="rounded-2xl rounded-tr-md px-6 py-4 max-w-2xl" style={{backgroundColor: '#E0F7FF', border: '1px solid #00E4FF'}}>
+                  <div className="rounded-2xl rounded-tr-md px-6 py-4 max-w-2xl" 
+                    style={{
+                      background: 'rgba(224, 247, 255, 0.8)',
+                      backdropFilter: 'blur(10px)',
+                      WebkitBackdropFilter: 'blur(10px)',
+                      border: '1px solid rgba(0, 228, 255, 0.3)',
+                      boxShadow: '0 4px 16px rgba(57, 172, 214, 0.1)'
+                    }}>
                     <p className="leading-relaxed" style={{color: '#000000'}}>
                       {userText}
                       {isUserTyping && <span className="inline-block w-0.5 h-5 ml-1 animate-pulse" style={{backgroundColor: '#0012FF'}}></span>}
                     </p>
                   </div>
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0" style={{backgroundColor: '#00E4FF', color: '#000000'}}>
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg" 
+                    style={{
+                      background: 'linear-gradient(135deg, #00E4FF, #39ACD6)',
+                      color: '#000000'
+                    }}>
                     <BsPerson className="text-2xl" />
                   </div>
                 </div>
               )}
             </div>
 
-            {/* Chat Input */}
+            {/* Chat Input - Glassmorphism */}
             <div className="max-w-full mt-8">
-              <div className="relative">
+              <div className="relative rounded-2xl" 
+                style={{
+                  background: 'rgba(255, 255, 255, 0.7)',
+                  backdropFilter: 'blur(10px)',
+                  WebkitBackdropFilter: 'blur(10px)',
+                  border: '2px solid rgba(57, 172, 214, 0.3)',
+                  boxShadow: '0 4px 16px rgba(0, 228, 255, 0.1)'
+                }}>
                 <input
                   type="text"
                   placeholder="Ask anything...."
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
-                  className="w-full px-6 py-4 rounded-2xl focus:outline-none transition-all duration-300"
+                  className="w-full px-6 py-4 rounded-2xl focus:outline-none transition-all duration-300 bg-transparent"
                   style={{
-                    backgroundColor: '#F0F8FF',
-                    border: '2px solid #39ACD6',
                     color: '#000000'
                   }}
-                  onFocus={(e) => e.target.style.borderColor = '#00E4FF'}
-                  onBlur={(e) => e.target.style.borderColor = '#39ACD6'}
                 />
                 <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-2">
-                  <button className="p-2.5 rounded-xl transition-all duration-300" style={{border: '1px solid #39ACD6'}} 
-                    onMouseEnter={(e) => {e.target.style.backgroundColor = '#00E4FF'; e.target.style.color = '#000000'}}
-                    onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = '#0012FF'}}
+                  <button className="p-2.5 rounded-xl transition-all duration-300 group" 
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.5)',
+                      backdropFilter: 'blur(5px)',
+                      WebkitBackdropFilter: 'blur(5px)',
+                      border: '1px solid rgba(57, 172, 214, 0.3)'
+                    }}
                   >
-                    <FiSend className="text-lg" style={{color: '#0012FF'}} />
+                    <FiSend className="text-lg transition-colors group-hover:text-cyan-600" style={{color: '#0012FF'}} />
                   </button>
-                  <button className="p-2.5 rounded-xl transition-all duration-300" style={{border: '1px solid #39ACD6'}}
-                    onMouseEnter={(e) => {e.target.style.backgroundColor = '#00E4FF'; e.target.style.color = '#000000'}}
-                    onMouseLeave={(e) => {e.target.style.backgroundColor = 'transparent'; e.target.style.color = '#0012FF'}}
+                  <button className="p-2.5 rounded-xl transition-all duration-300 group"
+                    style={{
+                      background: 'rgba(255, 255, 255, 0.5)',
+                      backdropFilter: 'blur(5px)',
+                      WebkitBackdropFilter: 'blur(5px)',
+                      border: '1px solid rgba(57, 172, 214, 0.3)'
+                    }}
                   >
-                    <HiPaperClip className="text-lg" style={{color: '#0012FF'}} />
+                    <HiPaperClip className="text-lg transition-colors group-hover:text-cyan-600" style={{color: '#0012FF'}} />
                   </button>
                 </div>
               </div>
